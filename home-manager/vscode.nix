@@ -23,6 +23,7 @@
           bbenoist.nix
           jnoortheen.nix-ide
           eamodio.gitlens
+          donjayamanne.githistory
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {

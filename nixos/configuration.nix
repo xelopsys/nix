@@ -46,12 +46,14 @@
   services.desktopManager.gnome.enable = true;
 
   environment.systemPackages = with pkgs; [
-    home-manager
+    gh
+    bun
     btop
     htop
-    gh
-    protonup-qt
     alejandra
+    nodejs_22
+    protonup-qt
+    home-manager
   ];
 
   programs.git.enable = true;

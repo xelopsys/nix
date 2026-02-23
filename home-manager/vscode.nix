@@ -154,6 +154,7 @@
         "remote.SSH.configFile" = "~/.ssh/id_ed25519";
         "extensions.ignoreRecommendations" = true;
         "terminal.integrated.suggest" = false;
+        "chat.extensionUnification.enabled" = true;
 
         # Language-specific settings
         "[css]" = {

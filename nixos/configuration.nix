@@ -50,6 +50,7 @@
     bun
     btop
     htop
+    pnpm_9
     alejandra
     nodejs_22
     protonup-qt

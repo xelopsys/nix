@@ -155,6 +155,9 @@
         "extensions.ignoreRecommendations" = true;
         "terminal.integrated.suggest" = false;
         "chat.extensionUnification.enabled" = true;
+        "[typescriptreact]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
 
         # Language-specific settings
         "[css]" = {

@@ -1,5 +1,5 @@
 {
-  description = "V pizdyu vse";
+  description = "xelopsys nix config";
 
   inputs = {
     # Nixpkgs
@@ -16,28 +16,56 @@
     home-manager,
     ...
   } @ inputs: let
+    # system = "x86_64-linux";
+    # pkgs = import nixpkgs {
+    #   inherit system;
+    #   config = {
+    #     allowUnfree = true;
+    #     allowUnfreePredicate = pkg:
+    #       builtins.elem (pkgs.lib.getName pkg) [
+    #         "steam"
+    #         "steam-original"
+    #         "steam-unwrapped"
+    #         "steam-run"
+    #       ];
+    #     nvidia.acceptLicense = true;
+    #     android_sdk.accept_license = true;
+    #     permittedInsecurePackages = [
+    #       "olm-3.2.16"
+    #     ];
+    #   };
+    # };
+    wallpaper = builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/xfeusw/nix/1fc84abf17f28e43e1b863df639afb345e86e9fd/wallpapers/133.jpg";
+      sha256 = "105ljph96bkvvfzwfy6gdyxjfxynn26g61j2q43z8iw7w9k1fjgx";
+    };
   in {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       # FIXME replace with your hostname
       xelopsys-nix = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit
+            inputs
+            ;
+        };
         # > Our main nixos configuration file <
         modules = [
           ./nixos/configuration.nix
 
           home-manager.nixosModules.home-manager
-            {
-              # home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "hbak";
+          {
+            # home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "hbak";
 
-              # TODO replace ryan with your own username
-              home-manager.users.xelopsys = import ./home-manager/home.nix;
+            # TODO replace ryan with your own username
+            home-manager.users.xelopsys = import ./home-manager/home.nix;
 
-              # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
-            }
+            # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+            home-manager.extraSpecialArgs = {inherit inputs wallpaper;};
+          }
         ];
       };
     };

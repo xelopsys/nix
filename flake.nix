@@ -36,8 +36,8 @@
     #   };
     # };
     wallpaper = builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/xfeusw/nix/1fc84abf17f28e43e1b863df639afb345e86e9fd/wallpapers/133.jpg";
-      sha256 = "105ljph96bkvvfzwfy6gdyxjfxynn26g61j2q43z8iw7w9k1fjgx";
+      url = "https://raw.githubusercontent.com/xelopsys/nix/refs/heads/master/wallpaper/luffy.png";
+      sha256 = "0ryyhzv9hi9rxd0zdv9ghil5qfg7cfl99hqks9idii7rpmdn9jmn";
     };
   in {
     # NixOS configuration entrypoint
